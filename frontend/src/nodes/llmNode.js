@@ -1,34 +1,25 @@
 // llmNode.js
+// LLM node for AI/language model processing
 
-import { Handle, Position } from 'reactflow';
+import { Bot } from 'lucide-react';
+import { BaseNode } from './BaseNode';
 
 export const LLMNode = ({ id, data }) => {
-
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
-      <Handle
-        type="target"
-        position={Position.Left}
-        id={`${id}-system`}
-        style={{top: `${100/3}%`}}
-      />
-      <Handle
-        type="target"
-        position={Position.Left}
-        id={`${id}-prompt`}
-        style={{top: `${200/3}%`}}
-      />
-      <div>
-        <span>LLM</span>
-      </div>
-      <div>
-        <span>This is a LLM.</span>
-      </div>
-      <Handle
-        type="source"
-        position={Position.Right}
-        id={`${id}-response`}
-      />
-    </div>
+    <BaseNode
+      id={id}
+      title="LLM"
+      icon={<Bot size={14} />}
+      type="llm"
+      inputs={[
+        { id: `${id}-system`, label: 'system' },
+        { id: `${id}-prompt`, label: 'prompt' }
+      ]}
+      outputs={[{ id: `${id}-response` }]}
+    >
+      <p className="node-info">
+        Large Language Model
+      </p>
+    </BaseNode>
   );
-}
+};
