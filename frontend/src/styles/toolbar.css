@@ -1,0 +1,104 @@
+/* toolbar.css - Toolbar and Draggable Node Styles */
+
+@import './variables.css';
+
+/* Toolbar Container */
+.toolbar {
+    background: var(--bg-dark);
+    border-bottom: 1px solid var(--border-default);
+    padding: var(--spacing-lg);
+}
+
+.toolbar-title {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--spacing-md);
+}
+
+.toolbar-nodes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+/* Draggable Node in Toolbar */
+.draggable-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 90px;
+    height: 70px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    cursor: grab;
+    transition: all var(--transition-normal);
+    user-select: none;
+}
+
+.draggable-node:hover {
+    background: var(--bg-elevated);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.draggable-node:active {
+    cursor: grabbing;
+    transform: scale(0.98);
+}
+
+.draggable-node .icon {
+    font-size: 24px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.draggable-node .label {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Node Type Specific Borders */
+.draggable-node.customInput {
+    border-left: 3px solid var(--node-input);
+}
+
+.draggable-node.customOutput {
+    border-left: 3px solid var(--node-output);
+}
+
+.draggable-node.llm {
+    border-left: 3px solid var(--node-llm);
+}
+
+.draggable-node.text {
+    border-left: 3px solid var(--node-text);
+}
+
+.draggable-node.note {
+    border-left: 3px solid var(--node-note);
+}
+
+.draggable-node.filter {
+    border-left: 3px solid var(--node-filter);
+}
+
+.draggable-node.merger {
+    border-left: 3px solid var(--node-merger);
+}
+
+.draggable-node.conditional {
+    border-left: 3px solid var(--node-conditional);
+}
+
+.draggable-node.api {
+    border-left: 3px solid var(--node-api);
+}
